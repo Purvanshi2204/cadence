@@ -1,243 +1,213 @@
-Cadence
+# Cadence
 
-A haptic-first breathing companion for moments of overwhelm.
+*A haptic-first breathing companion designed for moments of overwhelm.*
 
-Overview
+------------------------------------------------------------------------
 
-Cadence is a minimal, adaptive breathing experience designed to provide grounding during moments of anxiety, stress, or emotional overload.
+## Overview
 
-In overwhelming moments, reading instructions or navigating complex interfaces can feel exhausting. Cadence removes cognitive friction and replaces it with:
+Cadence is a minimal, adaptive breathing experience built to provide
+grounding during moments of anxiety, stress, or emotional overload.
 
-Rhythmic motion
+In overwhelming moments, reading instructions, navigating complex
+interfaces, or processing too much information can increase stress.
+Cadence removes cognitive friction and replaces it with rhythm.
 
-Subtle color transitions
+Instead of asking the user to think more, it offers:
 
-Haptic guidance
+-   Subtle motion\
+-   Calm color transitions\
+-   Synchronized haptic guidance\
+-   Gentle emotional reflection
 
-Gentle reflection
+The goal is not to "fix" anxiety --- but to provide presence through
+cadence.
 
-The goal is not to “solve” anxiety — but to provide a calm, structured rhythm that supports the body and mind.
+------------------------------------------------------------------------
 
-The Empathy Behind Cadence
+## The Empathy Behind Cadence
 
-When people feel anxious:
+When someone feels overwhelmed:
 
-Visual noise increases stress
+-   Visual clutter increases stress\
+-   Instructions feel heavy\
+-   Audio can feel overstimulating\
+-   Too many choices create paralysis
 
-Instructions feel demanding
+Cadence was designed around one principle:
 
-Sound can become overstimulating
+> In moments of anxiety, reduce complexity. Increase rhythm.
 
-Too many choices create paralysis
+Rather than tracking performance or asking users to analyze their
+emotions, Cadence provides a structured breathing experience supported
+by tactile feedback and calm visuals.
 
-Cadence was built around a simple principle:
+------------------------------------------------------------------------
 
-In moments of overwhelm, reduce thinking. Increase rhythm.
+## Core Experience
 
-Instead of asking users to analyze, plan, or track progress, Cadence:
-
-Guides breathing visually
-
-Uses haptics to provide grounding
-
-Offers a soft emotional check-in
-
-Adapts subtly over time
-
-No accounts.
-No dashboards.
-No performance metrics.
-
-Just presence.
-
-Core Experience
-1. Start
+### 1. Start
 
 The experience begins with a simple invitation:
 
-“Take a Moment.”
+**"Take a Moment."**
 
-No clutter. One action. Immediate entry into a breathing session.
+No complex setup. No onboarding flow. Immediate entry into the breathing
+session.
 
-2. Breathing Session
+------------------------------------------------------------------------
 
-The breathing session is immersive and minimal:
+### 2. Breathing Session
 
-A softly expanding and contracting orb
+The breathing session includes:
 
-Background colors that shift with inhale and exhale
+-   A softly expanding and contracting orb\
+-   Background color transitions synchronized with inhale and exhale\
+-   Core Haptics guiding the rhythm\
+-   A focused 60-second breathing cycle
 
-Core Haptics synchronized with breath rhythm
+The entire interface "breathes" together --- background, orb, and haptic
+pulse.
 
-A 60-second guided cycle
+There are no timers or metrics shown during the session. The experience
+centers on rhythm, not performance.
 
-The entire screen “breathes” together — background, orb, and haptic pulse.
+------------------------------------------------------------------------
 
-There are no visible timers or performance indicators. The experience focuses entirely on rhythm and presence.
+### 3. Reflection
 
-3. Reflection
+After each session, users are asked:
 
-After the session, users are asked:
+**"How are you feeling now?"**
 
-“How are you feeling now?”
+Options:
 
-They can choose:
-
-Lighter
-
-About the Same
-
-Still Overwhelmed
+-   Lighter\
+-   About the Same\
+-   Still Overwhelmed
 
 Reflection is optional and pressure-free.
 
 Once selected:
 
-A gentle supportive message appears
+-   A gentle supportive message appears\
+-   The next breathing session adapts subtly
 
-The breathing rhythm adapts subtly for the next session
+There is no forced journaling, analysis, or emotional labeling beyond
+this simple check-in.
 
-Users can immediately return to the start screen.
+------------------------------------------------------------------------
 
-No forced journaling.
-No emotional analysis.
-No judgment.
-
-Adaptive Rhythm System
+## Adaptive Rhythm System
 
 Cadence includes a lightweight adaptive breathing model.
 
-Based on reflection:
+Based on user reflection:
 
-Lighter → Standard rhythm (4s inhale / 4s exhale)
+-   **Lighter** → Standard rhythm (4s inhale / 4s exhale)\
+-   **About the Same** → Slightly longer exhale\
+-   **Still Overwhelmed** → Slower inhale and longer exhale
 
-About the Same → Slightly longer exhale
+The adaptation is subtle and not visually emphasized. It quietly
+personalizes the next session.
 
-Still Overwhelmed → Slower inhale + longer exhale
+Technically, this is implemented using a Swift `actor`
+(`AdaptiveRhythmManager`) to ensure concurrency-safe state management.
 
-The adaptation is subtle and intentional. It does not announce itself or dramatize change.
+------------------------------------------------------------------------
 
-Technically, this is implemented using a Swift actor (AdaptiveRhythmManager) to ensure safe state management in a concurrent environment.
+## Technical Highlights
 
-This creates a quiet feedback loop:
+Cadence is built using:
 
-Reflection → Rhythm Adjustment → Personalized Next Session
-
-Technical Highlights
-
-Cadence is built entirely in Swift using:
-
-SwiftUI
-
-Core Haptics
-
-Actor-based state management
-
-Clean, modular architecture
-
-No external dependencies
-
-Fully offline operation
+-   SwiftUI\
+-   Core Haptics\
+-   Actor-based state management\
+-   Clean view separation\
+-   No external dependencies\
+-   Fully offline functionality
 
 Key components:
 
-StartView
+-   `StartView`
+-   `BreathingView`
+-   `ReflectionView`
+-   `AdaptiveRhythmManager`
+-   `HapticsManager`
+-   `SessionStore`
 
-BreathingView
+The architecture follows single-responsibility principles and keeps UI,
+logic, and haptic control clearly separated.
 
-ReflectionView
+------------------------------------------------------------------------
 
-AdaptiveRhythmManager
+## Design Philosophy
 
-HapticsManager
+Cadence follows three core principles:
 
-SessionStore
+### 1. Minimal Cognitive Load
 
-Each component follows single-responsibility principles and is separated for clarity and maintainability.
+No dashboards, analytics, or complex navigation.
 
-Design Philosophy
+### 2. Emotional Neutrality
 
-Cadence follows three guiding principles:
+The app does not diagnose or interpret feelings. It offers space, not
+judgment.
 
-1. Minimal Cognitive Load
+### 3. Physical Grounding
 
-No dashboards, statistics, or unnecessary UI elements.
+Haptic feedback provides a body-based anchor, supporting regulation
+through breath rhythm rather than cognitive effort.
 
-2. Emotional Neutrality
+------------------------------------------------------------------------
 
-The app does not diagnose, interpret, or advise.
-It simply offers rhythm.
+## Accessibility Considerations
 
-3. Physical Grounding
+-   No required reading during the breathing session\
+-   High-contrast breathing text\
+-   No reliance on audio\
+-   Reflection is optional\
+-   Fully usable without entering personal data
 
-Haptic feedback provides a body-based anchor.
-Anxiety is often physical before it is cognitive — rhythm helps regulate that response.
+------------------------------------------------------------------------
 
-Why Haptics?
-
-Breathing exercises are traditionally visual or auditory.
-
-Cadence introduces tactile guidance:
-
-Reinforces rhythm without requiring visual focus
-
-Supports grounding when screen interaction feels overwhelming
-
-Aligns with parasympathetic nervous system activation through slower exhale cycles
-
-Haptics are not decorative — they are central to the experience.
-
-Accessibility Considerations
-
-No required reading during breathing
-
-High-contrast breathing text
-
-No reliance on audio
-
-Reflection is optional
-
-Fully usable without providing any personal data
-
-What Makes Cadence Different
+## What Makes Cadence Different
 
 Many breathing apps include:
 
-Timers
+-   Progress rings\
+-   Voice instructions\
+-   Streak tracking\
+-   Performance analytics
 
-Progress rings
+Cadence removes these elements and focuses on:
 
-Voice instruction
-
-Analytics dashboards
-
-Cadence removes those elements and focuses on:
-
-Presence.
-Rhythm.
+Presence.\
+Rhythm.\
 Subtle adaptation.
 
-It is intentionally small and intentional.
+It is intentionally minimal and private.
 
-Future Directions
+------------------------------------------------------------------------
 
-If expanded further:
+## Future Directions
 
-Time-of-day adaptive rhythm
+Potential expansions:
 
-Mood trend insights (optional and local only)
+-   Time-of-day rhythm adjustments\
+-   Optional mood trend insights (stored locally only)\
+-   Apple Watch haptic-only mode\
+-   Custom rhythm presets
 
-Apple Watch haptic-only mode
+All while preserving simplicity and privacy.
 
-Personalized rhythm presets
+------------------------------------------------------------------------
 
-All while preserving minimalism and privacy.
+## Closing
 
-Closing
+Cadence is not a productivity tool.\
+It is not a medical device.
 
-Cadence is not a productivity tool.
-It is not a diagnostic tool.
-
-It is a small digital pause — guided by rhythm.
+It is a small digital pause --- guided by rhythm.
 
 Sometimes, that is enough.
